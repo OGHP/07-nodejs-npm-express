@@ -75,7 +75,7 @@ articleView.setTeasers = () => {
 };
 
 // COMMENT: When/where is this function invoked? What event ultimately triggers its execution? Explain the sequence of code execution when this function is invoked.
-// PUT YOUR RESPONSE HERE
+// It's invoked on page load of new.html. I guess if we're talking about ultimately, it's the user going to new.html. the whole handshake though looks more like click serves jquery function serves callback function to run something which asks the server to switch to a page and then goes back down the chain.
 articleView.initNewArticlePage = () => {
   $('.tab-content').show();
   $('#export-field').hide();
@@ -88,7 +88,7 @@ articleView.initNewArticlePage = () => {
 };
 
 // COMMENT: When is this function called? What event ultimately triggers its execution?
-// PUT YOUR RESPONSE HERE
+// this function is called whenever the fields in new.html change. the event that ultimately triggers the function is the user inputting in a field and then pulling off of it either through hitting tab, accessing another field, or deselecting the field.
 articleView.create = () => {
   let article;
   $('#articles').empty();
@@ -113,7 +113,7 @@ articleView.create = () => {
 };
 
 // COMMENT: When is this function called? What event ultimately triggers its execution?
-// PUT YOUR RESPONSE HERE
+// submit is ultimately called when the user hits the submit button. It's only called when the user has the intention to make an article.
 articleView.submit = event => {
   event.preventDefault();
   let article = new Article({
@@ -126,13 +126,13 @@ articleView.submit = event => {
   });
 
   // COMMENT: Where is this function defined? When is this function called? What event ultimately triggers its execution?
-  // PUT YOUR RESPONSE HERE
+  // insertRecord is defined in article.js and is called right here only. It submits the data to the backend, ultimately on the user clicking submit and articleView calling submit in response (which calls insertRecord.)
   article.insertRecord();
-}
+};
 
 articleView.initIndexPage = () => {
   Article.all.forEach(article =>{
-    $('#articles').append(article.toHtml())
+    $('#articles').append(article.toHtml());
   });
 
   articleView.populateFilters();
