@@ -1,0 +1,16 @@
+{
+  "name": "heather-diego",
+  "version": "1.0.0",
+  "description": "first web server project for code 301",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Heather Palmer and Diego Ramos",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.3",
+    "get-ip": "^2.0.0"
+  }
+}
