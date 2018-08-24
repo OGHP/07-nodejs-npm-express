@@ -50,7 +50,7 @@ Article.prototype.insertRecord = function(callback) {
       console.log(data);
 
       // COMMENT: What is the purpose of this line? Is the callback invoked when this method is called? Why or why not?
-      // The callback is invoked if it exists when the method is invoked. However, I don't think you can pass this method without calling back, because it'll probably error if you throw this function without a param.
+      // The callback is invoked if it exists when the method is invoked. However, the if statement is an evaluation, so if it doesn't exist it just doesn't exist
       if (callback) callback();
     });
 };

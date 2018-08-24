@@ -3,6 +3,7 @@
 const getIp = require('get-ip');
 const express = require('express');
 const PORT = process.env.PORT || 3000;
+const path = require('path');
 const app = express();
 
 // REVIEW: POST route needs to parse the body passed in with the request.
@@ -16,8 +17,8 @@ app.use(express.urlencoded({ extended: true }),
   express.static('./public')
 );
 
-//IDK if this is necessary.
-app.get('public/new.html', (request, response) => {
+app.get('/new', (request, response) => {
+  response.sendFile(path.join(__dirname + '/public/new.html'));
 });
 
 app.post('/articles', (request, response) => {
